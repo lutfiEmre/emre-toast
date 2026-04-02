@@ -87,9 +87,12 @@ export function Docs() {
   const [activeTab, setActiveTab] = useState("quick");
 
   return (
-    <section id="docs" className="relative py-24 px-6 bg-slate-50/50 dark:bg-slate-900/20">
+    <section
+      id="docs"
+      className="relative overflow-x-clip py-24 px-4 sm:px-6 bg-slate-50/50 dark:bg-slate-900/20"
+    >
       <div className="absolute top-0 left-0 right-0 h-px gradient-divider" />
-      <div className="max-w-6xl w-fit mx-auto">
+      <div className="max-w-6xl w-full mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,32 +117,36 @@ export function Docs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ type: "spring", stiffness: 100, damping: 20 }}
-          className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-xl"
+          className="w-full min-w-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-xl"
         >
           <LayoutGroup>
-          <div className="flex border-b border-slate-200 dark:border-slate-700/50 overflow-x-auto overflow-y-hidden scroll-smooth relative docs-tabs-scroll">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setActiveTab(tab.id)}
-                className={`relative flex-shrink-0 px-6 py-4 text-base font-medium transition-colors whitespace-nowrap z-10 ${
-                  activeTab === tab.id
-                    ? "text-indigo-600 dark:text-indigo-400"
-                    : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
-                }`}
-              >
-                {tab.label}
-                {activeTab === tab.id && (
-                  <motion.div
-                    layoutId="docs-tab-underline"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-500"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
-            ))}
-          </div>
+            <div className="relative border-b border-slate-200 dark:border-slate-700/50">
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white/90 to-transparent dark:from-slate-900/85 z-20" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white/90 to-transparent dark:from-slate-900/85 z-20" />
+              <div className="flex gap-1 overflow-x-auto overflow-y-hidden scroll-smooth px-2 sm:px-3 relative docs-tabs-scroll">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`relative shrink-0 px-4 sm:px-5 py-4 text-sm sm:text-base font-semibold tracking-tight transition-colors whitespace-nowrap z-10 ${
+                      activeTab === tab.id
+                        ? "text-indigo-600 dark:text-indigo-400"
+                        : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
+                    }`}
+                  >
+                    {tab.label}
+                    {activeTab === tab.id && (
+                      <motion.div
+                        layoutId="docs-tab-underline"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-500"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
           </LayoutGroup>
           <AnimatePresence mode="wait">
             <motion.pre
@@ -148,7 +155,7 @@ export function Docs() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="p-7 overflow-x-auto text-sm font-mono bg-slate-900 dark:bg-slate-950"
+              className="p-5 sm:p-7 overflow-x-auto text-sm font-mono bg-slate-900 dark:bg-slate-950"
             >
               <code className="text-[14px]">{highlightCode(codeSnippets[activeTab])}</code>
             </motion.pre>

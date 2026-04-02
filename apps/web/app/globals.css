@@ -36,6 +36,14 @@
     @apply bg-white dark:bg-[#0a0a1a] text-slate-900 dark:text-slate-100 antialiased;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
+
+  #hero,
+  #features,
+  #playground,
+  #docs,
+  #compare {
+    scroll-margin-top: 96px;
+  }
 }
 
 /* Grain overlay - applied via .grain-overlay class */
@@ -137,6 +145,8 @@
 .docs-tabs-scroll {
   scrollbar-width: thin;
   scrollbar-color: rgba(148, 163, 184, 0.5) transparent;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
 }
 .docs-tabs-scroll::-webkit-scrollbar {
   height: 6px;

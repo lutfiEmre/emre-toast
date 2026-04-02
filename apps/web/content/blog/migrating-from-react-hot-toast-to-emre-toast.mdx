@@ -1,0 +1,90 @@
+---
+title: "Migrating From react-hot-toast to emre-toast"
+description: "A step-by-step migration guide for teams moving from react-hot-toast to emre-toast with minimal risk."
+date: "2026-03-22"
+tags: ["migration", "react-hot-toast", "how-to"]
+---
+
+If your team is already using `react-hot-toast`, migration can be straightforward. The key is to move in layers, not all at once.
+
+## Step 1) Mount The New Toaster Once
+
+In your root layout, add:
+
+```tsx
+import { EmreToaster } from "@emrelutfi/emre-toast";
+import "@emrelutfi/emre-toast/styles.css";
+
+<EmreToaster position="bottom-right" closeButton expand />
+```
+
+Keep your old toaster temporarily during migration if needed.
+
+## Step 2) Wrap Calls Behind One Adapter
+
+Create a small internal wrapper so feature teams do not depend on package-level details.
+
+```tsx
+import { emreToast } from "@emrelutfi/emre-toast";
+
+export const notify = {
+  success: (title: string) => emreToast.success(title),
+  error: (title: string) => emreToast.error(title),
+  loading: (title: string) => emreToast.loading(title),
+};
+```
+
+Adapters make future changes cheap.
+
+## Step 3) Migrate Critical Flows First
+
+Start with flows where notification quality matters most:
+
+- payments
+- uploads
+- async generation
+- destructive actions
+
+You will see user impact quickly.
+
+## Step 4) Replace Duplicate Toast Patterns
+
+Where you currently create multiple toasts during one action, move to update-in-place with `emreToast.update`.
+
+This usually delivers immediate UX improvement.
+
+## Step 5) Add Undo For Risky Actions
+
+Any archive/delete flow should gain undo during migration.
+
+That one change can reduce user frustration significantly.
+
+## Step 6) Standardize Copy During Migration
+
+Migration is the best time to unify message tone and format.
+
+- sentence length
+- verb style
+- action labels
+
+Consistency matters as much as visuals.
+
+## Step 7) Remove Legacy Package
+
+After all key surfaces are migrated and tested:
+
+- remove old imports
+- remove old provider
+- remove package dependency
+
+Keep the adapter to avoid direct coupling.
+
+## Common Pitfalls
+
+- migrating UI before copy standards
+- keeping both systems too long
+- skipping telemetry comparison before/after migration
+
+## Final Recommendation
+
+Do the migration incrementally, but ship improvements intentionally. Users should feel less noise, clearer progress, and safer actions from day one.

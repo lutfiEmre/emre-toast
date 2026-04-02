@@ -1,0 +1,80 @@
+---
+title: "Toast Accessibility in React: What Teams Usually Miss"
+description: "A practical accessibility guide for React toast systems, including focus, timing, and screen-reader behavior."
+date: "2026-04-01"
+tags: ["accessibility", "a11y", "react", "ux"]
+---
+
+Accessibility is where many toast systems silently fail. The UI looks good, but assistive tech users get missing context, repeated noise, or unannounced state changes.
+
+## 1) Use Clear Live Region Behavior
+
+Toasts should announce important status changes to screen readers without flooding the user.
+
+As a rule of thumb:
+
+- informative messages: polite announcement
+- blocking or critical failures: assertive only when necessary
+
+## 2) Never Rely on Color Alone
+
+If success means green and error means red, add iconography and text labels too.
+
+Users with low vision or color-vision differences should still understand the message instantly.
+
+## 3) Keep Action Labels Explicit
+
+Bad: "Click here"
+
+Good: "Undo archive"
+
+Toast actions are tiny and fast. Label clarity matters more than usual.
+
+## 4) Respect Time Limits
+
+Auto-dismiss can be hostile if users need extra time to process the message.
+
+If the toast includes an important action (undo, retry), duration should be long enough to act. Consider pause-on-hover behavior and manual dismiss support.
+
+## 5) Do Not Steal Keyboard Focus
+
+Toasts should not hijack focus from the current task unless absolutely necessary.
+
+A background success event should not pull the user away from a form field they are editing.
+
+## 6) Keep Motion Optional
+
+Heavy entrance/exit animations can be distracting. Use reduced motion preferences and keep transitions subtle.
+
+## 7) Announce State Transitions Once
+
+For loading -> success transitions, avoid creating a brand-new toast if possible. Update the existing toast so assistive output remains coherent.
+
+## 8) Test With Real Tools
+
+Before launch, test with:
+
+- keyboard-only navigation
+- VoiceOver or NVDA
+- reduced motion setting
+- zoomed viewport
+
+A11y quality cannot be guessed from code review alone.
+
+## 9) Write Better Message Copy
+
+Accessible copy is direct copy.
+
+- short subject
+- clear result
+- optional next step
+
+Example:
+
+"Upload failed. File exceeded 25MB limit. Choose a smaller file."
+
+## 10) Treat A11y as Product Quality
+
+Accessibility work is not a compliance afterthought. It improves clarity for everyone, not only for users with assistive needs.
+
+If your toast system is accessible, your product communication is stronger by default.

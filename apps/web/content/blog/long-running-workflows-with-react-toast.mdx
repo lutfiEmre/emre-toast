@@ -1,0 +1,85 @@
+---
+title: "Handling Long-Running Workflows With React Toasts"
+description: "How to model loading, progress, retries, and final state updates for long-running actions without UI noise."
+date: "2026-03-30"
+tags: ["async", "streaming", "workflow", "react"]
+---
+
+Long-running actions are where toast quality gets tested: exports, imports, indexing, AI generation, background jobs. Most products either under-communicate or spam the user.
+
+## The Goal
+
+Keep users informed without making the interface noisy.
+
+A good pattern is:
+
+1. one initial loading toast
+2. in-place progress updates
+3. one final success or error state
+
+## Example Flow
+
+```tsx
+const id = toast.loading("Preparing export...");
+
+socket.on("job:progress", (pct) => {
+  toast.update(id, { title: `Exporting... ${pct}%`, progress: pct });
+});
+
+socket.on("job:done", () => {
+  toast.update(id, { type: "success", title: "Export ready" });
+});
+
+socket.on("job:error", () => {
+  toast.update(id, { type: "error", title: "Export failed. Try again." });
+});
+```
+
+## Why This Works
+
+- The user sees one consistent thread.
+- No duplicate notifications.
+- Final state is obvious.
+
+## Retry Strategy
+
+If failure is recoverable, attach an action:
+
+- Retry
+- Open details
+- Undo (if destructive)
+
+A toast without recovery often increases frustration.
+
+## Progress Is About Confidence
+
+Even rough progress is better than silence. Users are more patient when they can see movement.
+
+If exact progress is unavailable, surface phase-based status:
+
+- validating input
+- processing data
+- finalizing result
+
+## Avoid These Mistakes
+
+- spawning a new toast per event
+- showing permanent loading with no transition
+- generic error text with no next step
+- success toast after user already navigated away from context
+
+## Team-Level Recommendation
+
+Document workflow states in one place:
+
+- loading copy
+- progress copy
+- success copy
+- error copy
+- retry policy
+
+This keeps behavior consistent across features.
+
+## Final Takeaway
+
+For long-running workflows, toast design is workflow design. If your state transitions are clear and low-noise, users trust your system even when operations take time.

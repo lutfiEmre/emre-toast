@@ -9,7 +9,38 @@ export type ContentMeta = {
   description?: string;
   date?: string;
   slug: string;
+  tags?: string[];
+  featured?: boolean;
+  readingTimeMinutes?: number;
+  wordCount?: number;
 };
+
+function getWordCount(content: string): number {
+  const normalized = content
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`[^`]*`/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\[(.*?)\]\(.*?\)/g, "$1")
+    .replace(/[#>*_\-]/g, " ");
+  return normalized.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function normalizeTags(value: unknown): string[] | undefined {
+  if (Array.isArray(value)) {
+    const tags = value
+      .map((item) => String(item).trim())
+      .filter(Boolean);
+    return tags.length > 0 ? tags : undefined;
+  }
+  if (typeof value === "string") {
+    const tags = value
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean);
+    return tags.length > 0 ? tags : undefined;
+  }
+  return undefined;
+}
 
 export function getContentSlugs(collection: "blog" | "integrations"): string[] {
   const dir = path.join(CONTENT_DIR, collection);
@@ -27,6 +58,8 @@ export function getContentBySlug(
   const filePath = path.join(CONTENT_DIR, collection, `${slug}.mdx`);
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
+  const wordCount = getWordCount(content);
+  const readingTimeMinutes = Math.max(1, Math.round(wordCount / 220));
   return {
     content,
     meta: {
@@ -34,6 +67,10 @@ export function getContentBySlug(
       description: data.description,
       date: data.date,
       slug,
+      tags: normalizeTags(data.tags),
+      featured: Boolean(data.featured),
+      readingTimeMinutes,
+      wordCount,
     },
   };
 }
@@ -48,6 +85,8 @@ export function getAllContent(
       return meta;
     })
     .sort((a, b) => {
+      if (a.featured && !b.featured) return -1;
+      if (!a.featured && b.featured) return 1;
       const da = a.date ?? "";
       const db = b.date ?? "";
       return db.localeCompare(da);
