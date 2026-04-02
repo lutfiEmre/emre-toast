@@ -56,11 +56,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/emreflow/emreflow"
+    "url": "git+https://github.com/lutfiEmre/emre-toast.git"
   },
-  "homepage": "https://github.com/emreflow/emreflow#readme",
+  "homepage": "https://github.com/lutfiEmre/emre-toast#readme",
   "bugs": {
-    "url": "https://github.com/emreflow/emreflow/issues"
+    "url": "https://github.com/lutfiEmre/emre-toast/issues"
   },
   "license": "MIT"
 }
