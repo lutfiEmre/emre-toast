@@ -63,8 +63,13 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto flex items-center justify-between py-2 px-4 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg shadow-slate-200/20 dark:shadow-slate-900/20">
         <a
           href="/"
-          className="text-xl font-bold text-slate-800 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+          className="flex items-center gap-2 text-xl font-bold text-slate-800 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
         >
+          <img
+            src="/brand/emre-toast-mark.svg"
+            alt="emre-toast logo"
+            className="h-7 w-7 rounded-md"
+          />
           emre-toast
         </a>
         <LayoutGroup>

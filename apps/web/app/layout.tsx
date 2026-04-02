@@ -11,6 +11,13 @@ export const metadata: Metadata = {
   title: "emre-toast | Premium React Toast Notifications",
   description:
     "The last toast library you'll ever need. Zero deps, streaming, progress, smart grouping.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/brand/emre-toast-mark.svg", type: "image/svg+xml" },
+    ],
+    shortcut: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({
