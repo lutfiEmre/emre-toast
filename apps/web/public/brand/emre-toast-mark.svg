@@ -1,0 +1,41 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="backGrad" x1="74" y1="40" x2="192" y2="212" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8A4A00" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#4A2A07" stop-opacity="0.16"/>
+    </linearGradient>
+    <linearGradient id="toastFace" x1="40" y1="26" x2="170" y2="206" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD9A2"/>
+      <stop offset="0.48" stop-color="#F7A63F"/>
+      <stop offset="1" stop-color="#E17C11"/>
+    </linearGradient>
+    <linearGradient id="toastCrust" x1="45" y1="18" x2="178" y2="78" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C95B07"/>
+      <stop offset="1" stop-color="#7A3400"/>
+    </linearGradient>
+    <linearGradient id="pingGrad" x1="176" y1="36" x2="224" y2="88" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCD17D"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <filter id="softShadow" x="28" y="26" width="184" height="196" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#A04D00" flood-opacity="0.24"/>
+    </filter>
+    <filter id="pingShadow" x="168" y="28" width="66" height="66" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#C2410C" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect x="68" y="52" width="126" height="154" rx="42" fill="url(#backGrad)"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="40" y="30" width="136" height="168" rx="44" fill="url(#toastFace)"/>
+    <path d="M40 78C40 53.7 59.7 34 84 34H132C156.3 34 176 53.7 176 78V86H40V78Z" fill="url(#toastCrust)"/>
+    <path d="M70 112C70 103.2 77.2 96 86 96H130C138.8 96 146 103.2 146 112V146C146 154.8 138.8 162 130 162H86C77.2 162 70 154.8 70 146V112Z" fill="#FFF5E8" fill-opacity="0.4"/>
+    <path d="M58 62C58 54.3 64.3 48 72 48H106" stroke="#FFEACA" stroke-opacity="0.7" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <g filter="url(#pingShadow)">
+    <circle cx="201" cy="60" r="22" fill="url(#pingGrad)"/>
+    <path d="M193 60L199 66L210 54" stroke="#FFF8ED" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

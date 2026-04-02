@@ -15,8 +15,13 @@ export function Footer() {
       />
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2">
+          <img
+            src="/brand/emre-toast-mark.svg"
+            alt="emre-toast logo"
+            className="h-7 w-7 rounded-md"
+          />
           <span className="text-xl font-bold text-slate-800 dark:text-slate-100">emre-toast</span>
-          <span className="text-slate-500 dark:text-slate-400 text-sm">v0.1.0</span>
+          <span className="text-slate-500 dark:text-slate-400 text-sm">v0.1.2</span>
         </div>
         <div className="flex items-center gap-6">
           <motion.button
