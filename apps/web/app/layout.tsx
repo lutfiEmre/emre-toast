@@ -4,7 +4,7 @@ import { ToasterWrapper } from "@/components/ToasterWrapper";
 import { Navbar } from "@/components/Navbar";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { ToastPositionProvider } from "@/lib/ToastPositionContext";
-import "emre-toast/styles.css";
+import "@emrelutfi/emre-toast/styles.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

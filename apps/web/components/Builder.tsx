@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { emreToast } from "emre-toast";
+import { emreToast } from "@emrelutfi/emre-toast";
 import { highlightCode } from "@/lib/highlightCode";
 import { useToastPosition, type ToastPosition } from "@/lib/ToastPositionContext";
 

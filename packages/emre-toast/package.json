@@ -1,5 +1,5 @@
 {
-  "name": "emre-toast",
+  "name": "@emrelutfi/emre-toast",
   "version": "0.1.0",
   "description": "AI-first React toast notifications with streaming, progress, undo countdown, and premium stacked UX.",
   "main": "./dist/index.js",

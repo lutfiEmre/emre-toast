@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { emreToast } from "emre-toast";
+import { emreToast } from "@emrelutfi/emre-toast";
 import { MeshGradient } from "./MeshGradient";
 
 const HEADLINE_LINE1 = ["The", "last", "toast"];
@@ -297,11 +297,11 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-12 md:mb-16"
         >
           <div className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/50 font-mono text-base shadow-xl">
-            <code className="text-slate-700 dark:text-slate-300">npm install emre-toast</code>
+            <code className="text-slate-700 dark:text-slate-300">npm install @emrelutfi/emre-toast</code>
             <button
               type="button"
               onClick={() => {
-                navigator.clipboard.writeText("npm install emre-toast");
+                navigator.clipboard.writeText("npm install @emrelutfi/emre-toast");
                 emreToast.success("Copied to clipboard!");
               }}
               className="p-1.5 rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-700/50 transition-colors"

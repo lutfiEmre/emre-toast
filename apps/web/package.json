@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
-    "emre-toast": "workspace:*",
+    "@emrelutfi/emre-toast": "workspace:*",
     "framer-motion": "^11.11.17",
     "gray-matter": "^4.0.3",
     "next": "15.0.3",

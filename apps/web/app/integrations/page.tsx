@@ -30,7 +30,7 @@ export default function IntegrationsPage() {
                 Install
               </p>
               <code className="mt-2 block text-sm font-semibold text-slate-800 dark:text-slate-200">
-                npm install emre-toast
+                npm install @emrelutfi/emre-toast
               </code>
             </div>
             <div className="rounded-2xl border border-slate-200/70 dark:border-slate-700/60 bg-white/80 dark:bg-slate-800/70 p-4">

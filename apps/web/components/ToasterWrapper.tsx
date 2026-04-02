@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { EmreToaster } from "emre-toast";
+import { EmreToaster } from "@emrelutfi/emre-toast";
 import { useToastPosition } from "@/lib/ToastPositionContext";
 
 export function ToasterWrapper() {

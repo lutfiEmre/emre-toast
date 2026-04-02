@@ -9,9 +9,9 @@ emre-toast works well with Next.js when you keep one global toaster and trigger 
 ## 1) Install
 
 ```bash
-npm install emre-toast
+npm install @emrelutfi/emre-toast
 # or:
-pnpm add emre-toast
+pnpm add @emrelutfi/emre-toast
 ```
 
 ## 2) Mount One Global Toaster
@@ -19,8 +19,8 @@ pnpm add emre-toast
 Add `EmreToaster` in `app/layout.tsx` once:
 
 ```tsx
-import { EmreToaster } from "emre-toast";
-import "emre-toast/styles.css";
+import { EmreToaster } from "@emrelutfi/emre-toast";
+import "@emrelutfi/emre-toast/styles.css";
 
 export default function RootLayout({ children }) {
   return (
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
 ```tsx
 "use client";
 
-import { emreToast } from "emre-toast";
+import { emreToast } from "@emrelutfi/emre-toast";
 
 export function MyButton() {
   return (

@@ -16,14 +16,14 @@ shadcn/ui ships with Sonner patterns by default, but you can move to emre-toast 
 ## 1) Install
 
 ```bash
-pnpm add emre-toast
+pnpm add @emrelutfi/emre-toast
 ```
 
 ## 2) Mount `EmreToaster` In Layout
 
 ```tsx
-import { EmreToaster } from "emre-toast";
-import "emre-toast/styles.css";
+import { EmreToaster } from "@emrelutfi/emre-toast";
+import "@emrelutfi/emre-toast/styles.css";
 
 export default function Layout({ children }) {
   return (
@@ -42,7 +42,7 @@ export default function Layout({ children }) {
 Swap Sonner calls with emre-toast calls in client components:
 
 ```tsx
-import { emreToast } from "emre-toast";
+import { emreToast } from "@emrelutfi/emre-toast";
 
 emreToast.success("Settings updated");
 emreToast.error("Request failed");

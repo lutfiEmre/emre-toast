@@ -4,7 +4,7 @@ Use this checklist before `npm publish`.
 
 ## Package Integrity
 
-- [ ] `pnpm --filter emre-toast build` succeeds
+- [ ] `pnpm --filter @emrelutfi/emre-toast build` succeeds
 - [ ] `dist/` contains updated JS + types + styles
 - [ ] `README.md` examples compile with current exports
 - [ ] `package.json` version bumped
@@ -28,7 +28,7 @@ Use this checklist before `npm publish`.
 ## Publish Commands
 
 ```bash
-pnpm --filter emre-toast build
+pnpm --filter @emrelutfi/emre-toast build
 cd packages/emre-toast
 npm publish --access public
 ```

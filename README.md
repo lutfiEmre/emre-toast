@@ -10,16 +10,16 @@ Premium React toast notifications for real-time and AI-first apps.
 ## Install
 
 ```bash
-npm install emre-toast
+npm install @emrelutfi/emre-toast
 # or
-pnpm add emre-toast
+pnpm add @emrelutfi/emre-toast
 ```
 
 ## Quick Start
 
 ```tsx
-import { Toaster, toast } from "emre-toast";
-import "emre-toast/styles.css";
+import { Toaster, toast } from "@emrelutfi/emre-toast";
+import "@emrelutfi/emre-toast/styles.css";
 
 export default function App() {
   return (

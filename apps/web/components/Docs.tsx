@@ -17,8 +17,8 @@ const tabs = [
 ];
 
 const codeSnippets: Record<string, string> = {
-  quick: `import { EmreToaster, emreToast } from 'emre-toast'
-import 'emre-toast/styles.css'
+  quick: `import { EmreToaster, emreToast } from '@emrelutfi/emre-toast'
+import '@emrelutfi/emre-toast/styles.css'
 
 function App() {
   return (

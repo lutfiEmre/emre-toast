@@ -14,7 +14,7 @@ AI and event-heavy products need:
 So I built an AI-first toast library for React with zero runtime deps.
 
 Install:
-`npm install emre-toast`
+`npm install @emrelutfi/emre-toast`
 
 Demo + docs:
 `<your-link>`
@@ -30,7 +30,7 @@ What I optimized for:
 - safer undo interactions
 
 If your app is AI-first or event-heavy, this may be useful:
-`npm install emre-toast`
+`npm install @emrelutfi/emre-toast`
 
 ## LinkedIn Post 3 (Integration)
 
