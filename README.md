@@ -1,6 +1,6 @@
 # emre-toast
 
-Premium React toast notifications for real-time and AI-first apps.
+Premium React toast notifications for real-time and interaction-heavy apps.
 
 - Zero runtime dependencies
 - Streaming and progress updates

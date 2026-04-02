@@ -1,7 +1,7 @@
 {
   "name": "@emrelutfi/emre-toast",
-  "version": "0.1.0",
-  "description": "AI-first React toast notifications with streaming, progress, undo countdown, and premium stacked UX.",
+  "version": "0.1.2",
+  "description": "React toast notifications with streaming updates, progress, undo countdown, and premium stacked UX.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -19,7 +19,8 @@
     "./styles.css": "./dist/styles.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "pnpm exec tsup && cp src/styles.css dist/styles.css",
@@ -49,8 +50,7 @@
     "undo",
     "real-time",
     "headless",
-    "ai",
-    "llm",
+    "typescript",
     "sonner",
     "zero-dependencies"
   ],
