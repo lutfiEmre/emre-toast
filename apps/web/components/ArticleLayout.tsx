@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import type { ContentMeta } from "@/lib/mdx";
+
+type ArticleMeta = {
+  title: string;
+  description?: string;
+  date?: string;
+  slug: string;
+  tags?: string[];
+  readingTimeMinutes?: number;
+  wordCount?: number;
+};
 
 type AdjacentArticle = {
   title: string;
@@ -9,7 +18,7 @@ type AdjacentArticle = {
 
 type ArticleLayoutProps = {
   children: React.ReactNode;
-  meta: ContentMeta;
+  meta: ArticleMeta;
   collection: "blog" | "integrations";
   previous?: AdjacentArticle;
   next?: AdjacentArticle;
@@ -158,7 +167,7 @@ export function ArticleLayout({
 }
 
 export function generateArticleMetadata(
-  meta: ContentMeta,
+  meta: ArticleMeta,
   collection: "blog" | "integrations"
 ): Metadata {
   const basePath = collection === "blog" ? "/blog" : "/integrations";
