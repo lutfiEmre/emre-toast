@@ -94,7 +94,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <a
-            href="https://github.com/emreflow/emreflow"
+            href="https://github.com/lutfiEmre/emre-toast"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-700/50 transition-colors"

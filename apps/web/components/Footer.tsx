@@ -50,7 +50,7 @@ export function Footer() {
             Integrations
           </Link>
           <motion.a
-            href="https://github.com/emreflow/emreflow"
+            href="https://github.com/lutfiEmre/emre-toast"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 text-sm transition-colors"
