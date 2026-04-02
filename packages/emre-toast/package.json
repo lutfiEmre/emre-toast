@@ -1,0 +1,66 @@
+{
+  "name": "emre-toast",
+  "version": "0.1.0",
+  "description": "AI-first React toast notifications with streaming, progress, undo countdown, and premium stacked UX.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm exec tsup && cp src/styles.css dist/styles.css",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  },
+  "keywords": [
+    "react",
+    "toast",
+    "notification",
+    "react-toast",
+    "sonner-alternative",
+    "streaming",
+    "progress",
+    "undo",
+    "real-time",
+    "headless",
+    "ai",
+    "llm",
+    "sonner",
+    "zero-dependencies"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emreflow/emreflow"
+  },
+  "homepage": "https://github.com/emreflow/emreflow#readme",
+  "bugs": {
+    "url": "https://github.com/emreflow/emreflow/issues"
+  },
+  "license": "MIT"
+}

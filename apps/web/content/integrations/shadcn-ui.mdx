@@ -1,0 +1,62 @@
+---
+title: "shadcn/ui Integration Guide"
+description: "How to run emre-toast in a shadcn/ui project with a clean migration path from Sonner."
+date: "2026-03-19"
+---
+
+shadcn/ui ships with Sonner patterns by default, but you can move to emre-toast when you need stronger streaming feedback, stack behavior, and interaction-rich notifications.
+
+## Why Teams Switch
+
+- Better behavior under burst notifications
+- Cleaner stack UX with expand-on-hover
+- Native undo countdown and movable mode
+- Zero runtime dependencies
+
+## 1) Install
+
+```bash
+pnpm add emre-toast
+```
+
+## 2) Mount `EmreToaster` In Layout
+
+```tsx
+import { EmreToaster } from "emre-toast";
+import "emre-toast/styles.css";
+
+export default function Layout({ children }) {
+  return (
+    <html>
+      <body>
+        {children}
+        <EmreToaster position="bottom-right" closeButton />
+      </body>
+    </html>
+  );
+}
+```
+
+## 3) Replace Toast Calls
+
+Swap Sonner calls with emre-toast calls in client components:
+
+```tsx
+import { emreToast } from "emre-toast";
+
+emreToast.success("Settings updated");
+emreToast.error("Request failed");
+emreToast.loading("Syncing...");
+```
+
+## 4) Remove Sonner Mount Point
+
+If you previously mounted Sonner's toaster component, remove it to avoid duplicate notifications.
+
+## 5) Styling Compatibility
+
+emre-toast is self-contained and works well with `next-themes`. It does not block your shadcn design system; your existing components remain untouched.
+
+## Final Note
+
+If your shadcn app needs advanced notification behavior without adding runtime complexity, emre-toast is a high-impact upgrade with a small migration footprint.

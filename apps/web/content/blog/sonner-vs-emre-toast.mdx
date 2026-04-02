@@ -1,0 +1,43 @@
+---
+title: "Sonner vs emre-toast: Which Toast Library Should You Choose?"
+description: "A direct comparison for teams choosing between Sonner and emre-toast, with practical guidance by product type."
+date: "2026-03-19"
+---
+
+Both Sonner and emre-toast are solid choices. The right pick depends on your product shape, especially if you care about real-time updates and interaction-heavy notification UX.
+
+## Quick Decision Matrix
+
+| Capability | Sonner | emre-toast |
+| --- | --- | --- |
+| Simple React toast API | Yes | Yes |
+| Streaming-focused live updates | Limited | Strong default |
+| Stacked perspective + expand-on-hover | No | Yes |
+| Undo countdown pattern | No native pattern | Built-in |
+| Movable toasts | No | Yes |
+| Runtime dependencies | Depends on Radix stack | Zero runtime deps |
+
+## Where Sonner Wins
+
+- You are fully standardized on shadcn defaults and want minimal surface change.
+- Your notification needs are straightforward and mostly static.
+- You prefer to stay close to the Radix ecosystem conventions.
+
+## Where emre-toast Wins
+
+- You are building AI, agentic, or streaming-heavy product flows.
+- You want premium stack behavior under burst traffic.
+- You need richer interaction patterns (undo windows, movable stacks, grouped updates).
+- You want low integration overhead with zero runtime dependencies.
+
+## Migration Notes (Sonner -> emre-toast)
+
+Migration is usually quick:
+
+1. Mount `EmreToaster` once in your app layout.
+2. Replace `toast.*` calls with `emreToast.*`.
+3. Enable stack behavior (`expand`, `closeButton`, `movable`) where needed.
+
+## Final Recommendation
+
+If your app is mostly standard dashboard UX, Sonner remains a good default. If your app depends on fast, real-time, and high-signal feedback loops, emre-toast gives you a stronger product edge.

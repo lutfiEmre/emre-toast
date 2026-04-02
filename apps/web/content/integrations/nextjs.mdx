@@ -1,0 +1,76 @@
+---
+title: "Next.js Integration Guide"
+description: "Production-ready setup for emre-toast in Next.js with App Router patterns and clean client-side triggering."
+date: "2026-03-19"
+---
+
+emre-toast works well with Next.js when you keep one global toaster and trigger toasts from client boundaries. This guide gives you a clean baseline for App Router projects.
+
+## 1) Install
+
+```bash
+npm install emre-toast
+# or:
+pnpm add emre-toast
+```
+
+## 2) Mount One Global Toaster
+
+Add `EmreToaster` in `app/layout.tsx` once:
+
+```tsx
+import { EmreToaster } from "emre-toast";
+import "emre-toast/styles.css";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <EmreToaster position="bottom-right" />
+      </body>
+    </html>
+  );
+}
+```
+
+## 3) Trigger Toasts From Client Components
+
+```tsx
+"use client";
+
+import { emreToast } from "emre-toast";
+
+export function MyButton() {
+  return (
+    <button onClick={() => emreToast.success("Saved!")}>
+      Save
+    </button>
+  );
+}
+```
+
+## 4) Server Action Pattern
+
+Server Actions cannot directly render browser toasts. Return action result to a client component and trigger `emreToast.*` based on that result.
+
+## 5) Recommended Starter Config
+
+For product-grade feedback, start with:
+
+- `position="bottom-right"`
+- `closeButton`
+- `expand={false}` for compact stacks
+- `movable` only if your UI benefits from drag repositioning
+
+```tsx
+<EmreToaster
+  position="bottom-right"
+  closeButton
+  expand={false}
+/>
+```
+
+## Why This Setup Works
+
+You get a single source of truth for notifications, stable behavior across routes, and a clean path for streaming/progress updates without UI noise.
