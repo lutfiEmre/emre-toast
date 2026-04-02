@@ -142,9 +142,14 @@ export function Toast({
 
   React.useEffect(() => {
     if (durationRef.current !== toast.duration) {
+      // Preserve elapsed time when duration is updated.
+      // Example: 5s toast with 2s elapsed -> remaining 3s.
+      // If duration becomes 10s, remaining should become 8s (not reset to 10s).
+      clearTimer();
+      const previousDuration = durationRef.current;
+      const delta = toast.duration - previousDuration;
       durationRef.current = toast.duration;
-      remainingRef.current = Math.max(0, toast.duration);
-      clearTimer(false);
+      remainingRef.current = Math.max(0, remainingRef.current + delta);
     }
 
     clearTimer();

@@ -22,11 +22,12 @@ export function fireConfetti(container: HTMLElement, x: number, y: number): void
     "position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;";
   document.body.appendChild(canvas);
 
-  const ctx = canvas.getContext("2d");
-  if (!ctx) {
+  const context = canvas.getContext("2d");
+  if (!context) {
     document.body.removeChild(canvas);
     return;
   }
+  const ctx: CanvasRenderingContext2D = context;
 
   const rect = container.getBoundingClientRect();
   const originX = rect.left + rect.width / 2;

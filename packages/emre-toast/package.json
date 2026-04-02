@@ -25,6 +25,7 @@
   "scripts": {
     "build": "pnpm exec tsup && cp src/styles.css dist/styles.css",
     "dev": "tsup --watch",
+    "lint": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
   "peerDependencies": {

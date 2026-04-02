@@ -87,7 +87,6 @@ export interface ToastState {
   avatar?: string;
   createdAt: number;
   duration: number;
-  pausedAt?: number;
   progress?: number;
   groupKey?: string;
   groupCount?: number;
